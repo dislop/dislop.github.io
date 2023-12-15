@@ -1,0 +1,118 @@
+@font-face {
+    font-family: KotoriRose;
+    src:
+      url(fonts/JetBrainsMono-Bold.ttf)
+      format('opentype');
+    font-weight: bold;
+  }
+  
+  @font-face {
+    font-family: KotoriRose;
+    src:
+      url(fonts/JetBrainsMono-Regular.ttf)
+      format('opentype');
+  }
+  
+  html {
+    line-height: 1.2;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+  }
+  
+  a {
+    color: #B45D75;
+    text-decoration: none;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  body {
+    background-color: #F3EEE2;
+    font-family: KotoriRose, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 11px;
+    padding: 1em;
+    max-width: 768px;
+    margin: auto;
+    margin-bottom: 1em;
+  }
+  
+  header {
+    font-size: 1em;
+    padding: 0.1em;
+    margin: 0;
+    border: 0.1em solid #3A3649;
+    text-align: center;
+    font-weight: bold;
+    -webkit-box-shadow: 6px 6px 0px 0px rgba(91,91,91,1);
+    -moz-box-shadow: 7px 7px 0px 0px rgba(91,91,91,1);
+    box-shadow: 7px 7px 0px 0px #3A3649(91,91,91,1);
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  /*START*/
+  .wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  aside ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    justify-content: space-around;
+  }
+  
+  aside ul li {
+    border: 0.2em solid black;
+    width: 40%;
+    text-align: center;
+    padding: 0.2em;
+    font-size: 1.2em;
+  }
+  
+  .inner {
+    padding: 1em;
+    border: 0.1em solid black;
+    box-shadow: 3px 3px 0px 0px #3A3649;
+  }
+  
+  .inner p {
+    margin-top: 0;
+    padding: 0 2em;
+  }
+  
+  .divider {
+    display: inline-block;
+    background: #3A3649;
+    color: white;
+    padding: 1em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    border-radius: 30px;
+  }
+  
+  main ul li {
+    margin-top: 0.9em;
+    padding: 0 1.2em;
+  }
+  
+  .links {
+    padding: 0 1em;
+  }
+  
