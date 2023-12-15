@@ -102,18 +102,33 @@
 <!-- Agrega el script JavaScript y la etiqueta de audio al final del cuerpo -->
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    // Reproduce el sonido en bucle cuando la página se carga
-    playSound();
+    // Reproduce el sonido cuando el usuario interactúa
+    document.body.addEventListener('click', playSound);
   });
 
   function playSound() {
-    const audio = new Audio('sounds/DISLOP_home.mp3');
+    const audio = new Audio();
+
+    // Intenta cargar diferentes formatos para mejorar la compatibilidad
+    if (audio.canPlayType('audio/mp3')) {
+      audio.src = 'sounds/DISLOP_home.mp3';
+    } else if (audio.canPlayType('audio/ogg')) {
+      audio.src = 'sounds/DISLOP_home.ogg';
+    } else {
+      audio.src = 'sounds/DISLOP_home.wav';
+    }
+
     audio.loop = true; // Establece el bucle
     audio.play();
+    
+    // Remueve el evento después de la primera interacción
+    document.body.removeEventListener('click', playSound);
   }
 </script>
 <audio id="audio" preload="auto">
   <source src="sounds/DISLOP_home.mp3" type="audio/mp3">
+  <source src="sounds/DISLOP_home.ogg" type="audio/ogg">
+  <source src="sounds/DISLOP_home.wav" type="audio/wav">
 </audio>
 </body>
 </html>
