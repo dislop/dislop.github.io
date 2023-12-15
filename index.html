@@ -99,5 +99,21 @@
     });
   });
 </script>
+<!-- Agrega el script JavaScript y la etiqueta de audio al final del cuerpo -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Reproduce el sonido en bucle cuando la página se carga
+    playSound();
+  });
+
+  function playSound() {
+    const audio = new Audio('sounds/DISLOP_home.mp3');
+    audio.loop = true; // Establece el bucle
+    audio.play();
+  }
+</script>
+<audio id="audio" preload="auto">
+  <source src="sounds/DISLOP_home.mp3" type="audio/mp3">
+</audio>
 </body>
 </html>
