@@ -27,6 +27,11 @@
     -moz-box-sizing: inherit;
     box-sizing: inherit;
   }
+
+  .links a {
+    text-decoration: none; /* Oculta el subrayado por defecto */
+  }
+  
   
   a {
     color: #B45D75;
