@@ -8,7 +8,7 @@
       type="image/png" 
       href="images/brain.png">
   <script src="https://kit.fontawesome.com/0dfc1e290d.js" crossorigin="anonymous"></script>
-  <title>DISLOP - Home</title>
+  <title>DISLOP</title>
   <style>
     /* Agrega este bloque de estilo para la animación de rotación */
     .rotate {
@@ -79,5 +79,25 @@
   </div>
   <p style="text-align: center;">•</p>
   <p style="text-align: center;">©2024, DISLOP</p>
+  <!-- Agrega el script JavaScript al final del cuerpo -->
+<!-- Agrega el script JavaScript al final del cuerpo -->
+<!-- Agrega el script JavaScript al final del cuerpo -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Obtén todos los enlaces dentro de la clase .links
+    const links = document.querySelectorAll('.links a');
+
+    // Agrega eventos de mouseover y mouseout a cada enlace
+    links.forEach(link => {
+      link.addEventListener('mouseover', () => {
+        link.style.textDecoration = 'underline'; // Agrega subrayado al pasar el cursor
+      });
+
+      link.addEventListener('mouseout', () => {
+        link.style.textDecoration = 'none'; // Elimina el subrayado al salir del enlace
+      });
+    });
+  });
+</script>
 </body>
 </html>
