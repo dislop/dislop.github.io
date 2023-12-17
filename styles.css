@@ -1,7 +1,7 @@
 @font-face {
     font-family: KotoriRose;
     src:
-      url(fonts/JetBrainsMono-Bold.ttf)
+      url(fonts/texgyreheros_bold.otf)
       format('opentype');
     font-weight: bold;
   }
@@ -31,8 +31,7 @@
   .links a {
     text-decoration: none; /* Oculta el subrayado por defecto */
   }
-  
-  
+
   a {
     color: #B45D75;
     text-decoration: none;
