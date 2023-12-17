@@ -94,6 +94,7 @@
     padding: 1em;
     border: 0.1em solid black;
     box-shadow: 3px 3px 0px 0px #3A3649;
+    border-radius: 10px;
   }
   
   .inner p {
