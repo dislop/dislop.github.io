@@ -8,6 +8,8 @@
       type="image/png" 
       href="images/brain.png">
   <script src="https://kit.fontawesome.com/0dfc1e290d.js" crossorigin="anonymous"></script>
+  <script src="js/three.js"></script>
+
   <title>DISLOP • Home</title>
   <style>
     /* Agrega este bloque de estilo para la animación de rotación */
@@ -30,17 +32,70 @@
       margin-bottom: 500px;
       display: block;
     }
-    }
+
   </style>
-  <link rel="icon" type="image/png" href="images/ente_corpoanima.png">
 </head>
 <body>
 
+  <script>
+    // Configuración de la escena
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ alpha: true }); // Configura el fondo transparente
+    renderer.setSize(window.innerWidth / 6, window.innerHeight / 6); // Ajusta el tamaño del cuadro principal
+  
+    // Centra la ventana de muestra
+    renderer.domElement.style.display = "block";
+    renderer.domElement.style.margin = "auto";
+  
+    document.body.appendChild(renderer.domElement);
+  
+    // Crear esfera
+    const geometry = new THREE.SphereGeometry(10, 30, 30);
+
+        // Cargar textura
+        const textureLoader = new THREE.TextureLoader();
+    const texture = textureLoader.load('https://threejs.org/examples/textures/uv_grid_opengl.jpg');
+  
+    // Material para la esfera con textura
+    const sphereMaterial = new THREE.MeshStandardMaterial({ map: texture });
+const sphere = new THREE.Mesh(geometry, sphereMaterial);
+const directionalLight = new THREE.DirectionalLight(0xffffff, 5);
+directionalLight.position.set(0, 0.5, 1); // Posición de la luz
+scene.add(directionalLight);;
+  
+    // Ajustar posición de la esfera para centrarla
+    sphere.position.set(0, 0, 0);
+    scene.add(sphere);
+  
+    // Ajustar posición de la cámara para centrar la esfera y reducir el tamaño del cuadro principal
+    camera.position.z = 15;
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    camera.position.set(0, 0, 20); // Ajusta la posición de la cámara
+  
+    // Animación de rotación
+    const animate = () => {
+      requestAnimationFrame(animate);
+  
+      // Rotar esfera
+      sphere.rotation.x += 0.01;
+      sphere.rotation.y += 0.01;
+      sphere.rotation.z += 0.03;
+  
+      // Renderizar la escena
+      renderer.render(scene, camera);
+    };
+  
+    // Iniciar animación
+    animate();
+  </script>
+  
+    
   <div class="wrapper">
 
     <header class="title">
       <h1>DISLOP</h1>
-      <img src="images/ente_corpoanima.png" alt="Descripción de la imagen" width="70" height="70" class="rotate">
 
     </header>
 
@@ -50,7 +105,6 @@
         <li><a href="blogs.html">blog posts</a></li>
       </ul> -->
     </aside>
-
     <br />
 
     <main>
