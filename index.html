@@ -7,7 +7,6 @@
   <link rel="icon" 
       type="image/png" 
       href="images/ente_corpoanima.png">
-  <script src="https://kit.fontawesome.com/0dfc1e290d.js" crossorigin="anonymous"></script>
   <script src="js/three.js"></script>
 
   <title>DISLOP • Home</title>
@@ -33,6 +32,11 @@
       display: block;
     }
 
+    /* Estilo para hacer la palabra CONTACT más grande */
+  .divider {
+    font-size: 1.5em; /* Puedes ajustar el tamaño según sea necesario */
+  }
+
   </style>
 </head>
 <body>
@@ -42,55 +46,56 @@
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ alpha: true }); // Configura el fondo transparente
-    renderer.setSize(window.innerWidth / 6, window.innerHeight / 6); // Ajusta el tamaño del cuadro principal
-  
+    renderer.setSize(window.innerWidth / 6, window.innerHeight / 6); // Ajusta el tamaño del cuadro principal, 6 es el normal
+
     // Centra la ventana de muestra
     renderer.domElement.style.display = "block";
     renderer.domElement.style.margin = "auto";
-  
+
     document.body.appendChild(renderer.domElement);
-  
+
     // Crear esfera
     const geometry = new THREE.SphereGeometry(10, 30, 30);
 
-        // Cargar textura
-        const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load('https://threejs.org/examples/textures/uv_grid_opengl.jpg');
-  
-    // Material para la esfera con textura
-    const sphereMaterial = new THREE.MeshStandardMaterial({ map: texture });
-const sphere = new THREE.Mesh(geometry, sphereMaterial);
-const directionalLight = new THREE.DirectionalLight(0xffffff, 5);
-directionalLight.position.set(0, 0.5, 1); // Posición de la luz
-scene.add(directionalLight);;
-  
-    // Ajustar posición de la esfera para centrarla
-    sphere.position.set(0, 0, 0);
+    // Utiliza un material Phong para obtener reflexiones y brillo
+    const material = new THREE.MeshPhongMaterial({ color: 0xF4BABA });
+    
+    const sphere = new THREE.Mesh(geometry, material);
     scene.add(sphere);
-  
+
+    // Añadir luz direccional con color cambiado
+    const directionalLight = new THREE.DirectionalLight(0xF2EFE2, 6); // Cambia el color a magenta
+    scene.add(directionalLight);
+
     // Ajustar posición de la cámara para centrar la esfera y reducir el tamaño del cuadro principal
     camera.position.z = 15;
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     camera.position.set(0, 0, 24.7); // Ajusta la posición de la cámara
-  
-    // Animación de rotación
+
+    // Animación de rotación y movimiento de la luz
     const animate = () => {
       requestAnimationFrame(animate);
-  
+
       // Rotar esfera
       sphere.rotation.x += 0.01;
       sphere.rotation.y += 0.01;
       sphere.rotation.z += 0.03;
-  
+
+      // Mover la luz en una trayectoria circular
+      const time = Date.now() * 0.002;
+      const lightX = Math.sin(time) * 5;
+      const lightY = Math.cos(time) * 1;
+      const lightZ = 1.5; // Ajusta este valor para acercar o alejar la luz
+      directionalLight.position.set(lightX, lightY, lightZ);
+
       // Renderizar la escena
       renderer.render(scene, camera);
     };
-  
+
     // Iniciar animación
     animate();
-  </script>
-  
+</script>
     
   <div class="wrapper">
 
@@ -110,15 +115,14 @@ scene.add(directionalLight);;
     <main>
       <div class="inner" style="text-align: center;"> <!-- Aplica text-align al elemento contenedor -->
       <div class="inner">
-        <div class="divider">LISTEN TO MY MUSIC</div>
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2dnTQoFot0yzGkBAurFIyR?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:11px" src="https://open.spotify.com/embed/playlist/2dnTQoFot0yzGkBAurFIyR?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         <p style="text-align: center;"></p>
-  <a href="https://www.instagram.com/dislop.oficial/"><img src="images/instagram.png" alt="Instagram" width="30" height="30"></a>   
-  <a href="https://www.tiktok.com/@dislop.oficial"><img src="images/tiktok.png" alt="TikTok" width="30" height="30"></a>   
-  <a href="https://www.youtube.com/channel/UC1pPxaZovC6CckKkEA11YPQ"><img src="images/youtube.png" alt="YouTube" width="30" height="30"></a>
-  <a href="https://soundcloud.com/dislopoficial"><img src="images/soundcloud.png" alt="Soundcloud" width="30" height="30"></a>  
-  <a href="https://open.spotify.com/artist/5NgAEQyb4Bc0WImcijofln?si=3vqplTG1R1OGH0oFYVfKqg"><img src="images/spotify.png" alt="Spotify" width="30" height="30"></a>   
-  <a href="https://music.apple.com/es/artist/dislop/1563198560?l=en-GB"><img src="images/applemusic.png" alt="Apple Music" width="30" height="30"></a> 
+  <a href="https://www.instagram.com/dislop.oficial/"><img src="images/instagram1.png" alt="Instagram" width="30" height="30"></a>   
+  <a href="https://www.tiktok.com/@dislop.oficial"><img src="images/tiktok1.png" alt="TikTok" width="30" height="30"></a>   
+  <a href="https://www.youtube.com/channel/UC1pPxaZovC6CckKkEA11YPQ"><img src="images/youtube1.png" alt="YouTube" width="30" height="30"></a>
+  <a href="https://soundcloud.com/dislopoficial"><img src="images/soundcloud1.png" alt="Soundcloud" width="30" height="30"></a>  
+  <a href="https://open.spotify.com/artist/5NgAEQyb4Bc0WImcijofln?si=3vqplTG1R1OGH0oFYVfKqg"><img src="images/spotify1.png" alt="Spotify" width="30" height="30"></a>   
+  <a href="https://music.apple.com/es/artist/dislop/1563198560?l=en-GB"><img src="images/applemusic1.png" alt="Apple Music" width="30" height="30"></a> 
         <p style="text-align: center;"></p>
       <div class="inner">
         <p>Hi 👋🏻, I'm Martin, a passionate composer and music producer, excited to offer my services to enhance the sonic experience of your audiovisual project.</p>
@@ -138,11 +142,10 @@ scene.add(directionalLight);;
     </main>
 
   </div>
+  <p style="text-align: center;">-------------------------</p>
   <p style="text-align: center;">•</p>
   <p style="text-align: center;">©2024, DISLOP</p>
   <!-- Agrega el script JavaScript al final del cuerpo -->
-<!-- Agrega el script JavaScript al final del cuerpo -->
-<!-- Agrega el script JavaScript al final del cuerpo -->
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     // Obtén todos los enlaces dentro de la clase .links
