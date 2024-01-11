@@ -43,7 +43,7 @@ ul {
 }
 
 body {
-  background: linear-gradient(to right, #714E6A, #EA7471); /* Fondo gradiente */
+  background: linear-gradient(to right, #000000, #000000); /* Fondo gradiente */
   font-family: KotoriRose, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 11px;
   padding: 1em;
